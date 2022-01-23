@@ -19,17 +19,36 @@
 // }))
 const _ut = {
     // 返回范围内随机数
-    randomNum: (min, max) => Math.floor(Math.random() * (max - min + 1)) + min,
+    randomNum(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
     // 返回千分符格式化的字符串
-    formatThousands1: (num) => num.toString().replace(/(?<!\.)(\d+)(?=(\d{3}))/g, "$1,"),
-    formatThousands2: (num) => num.toLocaleString("en"),
+    formatThousands1(num) {
+        return num.toString().replace(/(?<!\.)(\d+)(?=(\d{3}))/g, "$1,");
+    },
+    formatThousands2(num) {
+        return num.toLocaleString("en");
+    },
     // 数组乱序
-    arrShuffle: (arr) => {
+    arrShuffle(arr) {
         for (let i = 1; i < arr.length; i++) {
             const random = Math.floor(Math.random() * (i + 1));
             [arr[i], arr[random]] = [arr[random], arr[i]];
         }
         return arr;
+    },
+    // 数组扁平化
+    arrFlatten1(arr) {
+        return arr.reduce((result, item) => {
+            return result.concat(Array.isArray(item) ? this.arrFlatten1(item) : item);
+        }, []);
+    },
+    arrFlatten2(arr, depth) {
+        return arr.flat(depth || 1);
+    },
+    // 获取数组随机一项
+    arrRandomItem(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
     }
 };
 export default _ut;

@@ -1,7 +1,2 @@
-declare const _ut: {
-    randomNum: (min: number, max: number) => number;
-    formatThousands1: (num: number) => string;
-    formatThousands2: (num: number) => string;
-    arrShuffle: <T>(arr: T[]) => T[];
-};
+declare const _ut: any;
 export default _ut;
