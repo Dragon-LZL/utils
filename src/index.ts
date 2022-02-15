@@ -56,6 +56,11 @@ const _ut: any = {
     return arr[Math.floor(Math.random() * arr.length)];
   },
 
+  // 字符串转数组
+  str2Arr(string: string) {
+    return [...string];
+  },
+
   // 首字母大写
   firstLetterUpper(str: string) {
     return str.charAt(0).toUpperCase() + str.slice(1);
