@@ -223,6 +223,16 @@ const _ut: any = {
         return "mac";
       }
     }
+  },
+
+  // 复制到剪贴板
+  copyToClipboard(text: string) {
+    navigator.clipboard?.writeText && navigator.clipboard.writeText(text)
+  },
+
+  // 滚动到顶部或底部
+  scrollTo(element: HTMLElement, block: 'end' | 'start') {
+    element.scrollIntoView({ behavior: "smooth", block: block })
   }
 };
 
